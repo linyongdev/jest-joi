@@ -11,9 +11,9 @@ export function invalidSchemaMessage(hint: Hint, schema: Schema): string[] {
     "",
     "Expected: " + validSchemaExplanation("Schema must be a valid Joi schema"),
     "Receieved: " + invalidSchemaExplanation(schema.error),
-    schema.submittedIsSimple
-      ? "Schema: " + invalidSchema(schema.submitted)
+    schema.input.isSimple
+      ? "Schema: " + invalidSchema(schema.input.value)
       : "Schema:",
-    schema.submittedIsSimple ? null : invalidSchema(schema.submitted),
+    schema.input.isSimple ? null : invalidSchema(schema.input.value),
   ];
 }
